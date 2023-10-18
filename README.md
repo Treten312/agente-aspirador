@@ -7,4 +7,6 @@ Atividade Avaliativa I - Inteligência Artificial <br>
 ## Objetivo 
 Implementação de um Agente Racional que limpa um quarto com o mínimo possível de ações, o objetivo é que todo o ambiente esteja limpo e o agente retorne ao lar.
 
-## 
+## Parte A - Indentificação do PEAS (Performance, EnviroNment, Actuators and Sensors).
+
+| Agente | Performance | Ambiente | Atuadores | Sensores |
