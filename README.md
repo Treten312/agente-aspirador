@@ -1,6 +1,6 @@
 # Agente Aspirador
 Atividade Avaliativa I - Inteligência Artificial <br>
-- Alunos: <br>
+- Alunos: 
   - André Lima
   - Carlos Mateus
 
@@ -13,7 +13,7 @@ Implementação de um Agente Racional que limpa um quarto com o mínimo possíve
 - O agente pode se mover apenas para o Norte, Sul, Leste ou Oeste. Ele não pode se mover diagonalmente
 - Cada ação custa 1 ponto de energia. Por exemplo, cada movimento custa 1 ponto de energia, cada aspiração custa 1 ponto de energia.
 - O agente possui uma bolsa que coleta sujeira. A capacidade máxima é de 10.
-- Após cada aspiração, o agente precisa verificar sua bolsa; se esƟver cheia, ele deve voltar para Casa (localização A), esvaziar a bolsa e começar a aspirar novamente.
+- Após cada aspiração, o agente precisa verificar sua bolsa; se estiver cheia, ele deve voltar para Casa (localização A), esvaziar a bolsa e começar a aspirar novamente.
 
 Ambiente:
 <br>
