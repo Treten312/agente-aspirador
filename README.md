@@ -1,5 +1,5 @@
 # Agente Aspirador
-Atividade Avaliativa I - Inteligência Artificial
+Atividade Avaliativa I - Inteligência Artificial;
 Alunos: André Lima / Carlos Mateus
 
 ## Objetivo 
