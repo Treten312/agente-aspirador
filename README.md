@@ -15,7 +15,11 @@ Implementação de um Agente Racional que limpa um quarto com o mínimo possíve
 - O agente possui uma bolsa que coleta sujeira. A capacidade máxima é de 10.
 - Após cada aspiração, o agente precisa verificar sua bolsa; se esƟver cheia, ele deve voltar para Casa (localização A), esvaziar a bolsa e começar a aspirar novamente.
 
-## Parte A - Indentificação do PEAS (Performance, EnviroNment, Actuators and Sensors).
+Ambiente:
+<br>
+![Screenshot_1](https://github.com/Treten312/agente-aspirador/assets/94249590/997716c8-0023-4fe8-98d8-78e78488caa6) 
+
+## Parte A - Indentificação do P.E.A.S (Performance, EnviroNment, Actuators and Sensors).
 
 | Agente | Performance | Ambiente | Atuadores | Sensores |
 | --- | --- | --- | --- | --- |
