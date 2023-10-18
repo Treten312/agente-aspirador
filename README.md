@@ -10,3 +10,5 @@ Implementação de um Agente Racional que limpa um quarto com o mínimo possíve
 ## Parte A - Indentificação do PEAS (Performance, EnviroNment, Actuators and Sensors).
 
 | Agente | Performance | Ambiente | Atuadores | Sensores |
+| --- | --- | --- | --- | --- |
+| Aspirador |
