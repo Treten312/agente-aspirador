@@ -11,4 +11,4 @@ Implementação de um Agente Racional que limpa um quarto com o mínimo possíve
 
 | Agente | Performance | Ambiente | Atuadores | Sensores |
 | --- | --- | --- | --- | --- |
-| Aspirador | Quantidade de sujeira limpa, Eficiencia de energia | Grade de quadrados 4x4 | 
+| Aspirador | Quantidade de sujeira limpa, Eficiencia de energia | Grade de quadrados 4x4 | Motores de movimento, Mecânismo de aspiração, Mecânismo de esvaziamente de bolsa | Sensor de sujeira, Sensor de energia, Sensor de proximidade |
