@@ -15,8 +15,8 @@ Implementação de um Agente Racional que limpa um quarto com o mínimo possíve
 
 ## Parte B - Criação de código em Java ou Python para implementar o Agente Racional.
 Checklist de implementações necessárias:
-- [] Implementação do ambiente estático, definir um array ou alguma outra estrutura de dados que representará as localizações (de A a P). 
-- [] Uma função/método para determinar qual ação tomar. A decisão deve ser: Mover (em que direção), aspirar sujeira ou voltar para casa.
-- [] Uma função/método para determinar em qual direção seguir.
-- [] Uma função/método para idenƟficar a rota e navegar de volta para casa a parƟr da localização atual.
-- [] Uma função/método para testar se o objeƟvo desejado foi alcançado ou não.
+- [ ] Implementação do ambiente estático, definir um array ou alguma outra estrutura de dados que representará as localizações (de A a P). 
+- [ ] Uma função/método para determinar qual ação tomar. A decisão deve ser: Mover (em que direção), aspirar sujeira ou voltar para casa.
+- [ ] Uma função/método para determinar em qual direção seguir.
+- [ ] Uma função/método para idenƟficar a rota e navegar de volta para casa a parƟr da localização atual.
+- [ ] Uma função/método para testar se o objeƟvo desejado foi alcançado ou não.
