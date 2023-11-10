@@ -27,8 +27,8 @@ Ambiente:
 
 ## Parte B - Criação de código em Java ou Python para implementar o Agente Racional.
 Checklist de implementações necessárias:
-- [ ] Implementação do ambiente estático, definir um array ou alguma outra estrutura de dados que representará as localizações (de A a P). 
-- [ ] Uma função/método para determinar qual ação tomar. A decisão deve ser: Mover (em que direção), aspirar sujeira ou voltar para casa.
-- [ ] Uma função/método para determinar em qual direção seguir.
+- [x] Implementação do ambiente estático, definir um array ou alguma outra estrutura de dados que representará as localizações (de A a P). 
+- [x] Uma função/método para determinar qual ação tomar. A decisão deve ser: Mover (em que direção), aspirar sujeira ou voltar para casa.
+- [x] Uma função/método para determinar em qual direção seguir.
 - [ ] Uma função/método para identificar a rota e navegar de volta para casa a partir da localização atual.
 - [ ] Uma função/método para testar se o objetivo desejado foi alcançado ou não.
