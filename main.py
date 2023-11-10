@@ -1,49 +1,102 @@
-# Ambiente implementado como um array para que a movimentação do agente seja mais fácil de implementar
-# 'L' = Limpo e 'S' = Sujo, o ambiente foi feito de acordo com a foto de exemplo da atividade
-ambiente = [['L','L','S','L'],
-            ['L','S','L','S'],
-            ['S','L','S','L'],
-            ['S','L','S','L']]
+import random
+import time
 
-class AgenteAspirador:
-    def __init__(self, energia=100):
-        self.posicao = (0, 0) # Posição inicial do aspirador como 'A' = [0, 0] no array
-        self.energia = energia # Energia inicial do aspirador, 100 pontos de energia
-        self.bolsa = [] # Bolsa para armazenar sujeira aspirada em forma de lista
+class AspiradorDePo:
+    def __init__(self):
+        self.energia = 100
+        self.bolsa_sujeira = 0
+        self.grid = [[random.choice([0, 1]) for _ in range(4)] for _ in range(4)]  # Posições aleatórias (0: limpo, 1: sujo)
+        self.localizacao = [0, 0]  # Posição inicial no grid 4x4
 
-#    def verficar(self, ambiente):
-#        x, y = self.posicao
-#        estado = ambiente[x][y]
-#        return estado
-    
-    def energia_atual(self): # Verificar a quantidade de energia atual
-        return self.energia
+    def mover(self, direcao):
+        movimentos = {
+            'Norte': (-1, 0),
+            'Sul': (1, 0),
+            'Leste': (0, 1),
+            'Oeste': (0, -1)
+        }
 
-    def mover(self, direcao): # Função para atualizar localização atual após se mover
-        custo_mover = 1
-        x, y = self.posicao
-        if self.energia >= custo_mover:
-            if direcao == 'Norte' and x > 0:
-                x -= 1
-            elif direcao == 'Sul' and x < 3:
-                x += 1
-            elif direcao == 'Leste' and y < 3:
-                y += 1
-            elif direcao == 'Oeste' and y > 0:
-                y -= 1
-            
-            # Verifica se as coordenadas destino escolhidas estão dentro do limite do ambiente
-            if 0 <= x <= 3 and 0 <= y <= 3: 
-                self.localizacao = (x, y)
-                self.energia -= custo_mover
+        movimento = movimentos[direcao]
+        nova_posicao = [self.localizacao[0] + movimento[0], self.localizacao[1] + movimento[1]]
 
-    def aspirar(self, ambiente): # Função pra fazer a aspiração, como a função já verifica o estado atual da posição, se faz desnecessário a "def verificar"
-        custo_aspirar = 1
-        x, y = self.posicao
-        if self.energia >= custo_aspirar:
-            if ambiente[x][y] == 'S':
-                ambiente[x][y] == 'L' # "Limpa" o ambiente, só muda o estado pra limpo mesmo 
-                self.bolsa.append('Sujeira') # Adciona a "sujeira" no ambiente
-                self.energia -= custo_aspirar
+        # Verifica se a nova posição está dentro do grid 4x4
+        if 0 <= nova_posicao[0] < 4 and 0 <= nova_posicao[1] < 4:
+            self.energia -= 1
+            self.localizacao = nova_posicao
+            print(f"O agente se moveu para o {direcao.lower()}.")
+        else:
+            print("Movimento inválido. Escolha outra direção.")
 
-        
+    def aspirar(self):
+        self.energia -= 1
+        if self.grid[self.localizacao[0]][self.localizacao[1]] == 1:
+            self.grid[self.localizacao[0]][self.localizacao[1]] = 0
+            self.bolsa_sujeira += 1
+            print("O agente aspirou a sujeira na posição", self.localizacao)
+        else:
+            print("Nada para aspirar na posição", self.localizacao)
+
+        if self.bolsa_sujeira == 10:
+            self.esvaziar_bolsa()
+
+    def esvaziar_bolsa(self):
+        self.energia -= 1
+        self.bolsa_sujeira = 0
+        print("Bolsa cheia! Esvaziando a bolsa na Casa (posição 0, 0)")
+        self.localizacao = [0, 0]
+
+    def mostrar_estado(self):
+        print("\nEstado Atual do Grid:")
+        for i in range(4):
+            for j in range(4):
+                if [i, j] == self.localizacao:
+                    print("A", end=' ')  # Representa a posição do agente
+                elif self.grid[i][j] == 1:
+                    print("S", end=' ')  # Representa sujeira
+                else:
+                    print("L", end=' ')  # Representa limpo
+            print()
+
+        print(f"\nEnergia: {self.energia} pontos")
+        print(f"Bolsa de sujeira: {self.bolsa_sujeira}/10")
+        print(f"Posição Atual: ({self.localizacao[0]}, {self.localizacao[1]})")
+
+    def acao_aleatoria(self):
+        # Verifica se a posição atual está suja antes de decidir mover ou aspirar
+        if self.grid[self.localizacao[0]][self.localizacao[1]] == 1:
+            self.aspirar()
+        else:
+            acoes = ['Norte', 'Sul', 'Leste', 'Oeste']
+            acao = random.choice(acoes)
+
+            if acao == 'Norte' or acao == 'Sul' or acao == 'Leste' or acao == 'Oeste':
+                self.mover(acao)
+
+    def reiniciar(self):
+        self.energia = 100
+        self.bolsa_sujeira = 0
+        self.grid = [[random.choice([0, 1]) for _ in range(4)] for _ in range(4)]
+        self.localizacao = [0, 0]
+
+
+# Função principal
+def main():
+    aspirador = AspiradorDePo()
+
+    while aspirador.energia > 0:
+        aspirador.mostrar_estado()
+        print("-----------------")
+        aspirador.acao_aleatoria()
+
+        if aspirador.energia <= 0 or aspirador.bolsa_sujeira == 10:
+            print("Energia esgotada ou bolsa cheia. Reiniciando aspirador.")
+            aspirador.reiniciar()
+
+        # Introduzindo um atraso de 1 segundo entre as ações
+        time.sleep(10)
+
+    print("Energia esgotada. Encerrando programa.")
+
+
+if __name__ == "__main__":
+    main()
