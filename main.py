@@ -92,7 +92,7 @@ def main():
             print("Energia esgotada ou bolsa cheia. Reiniciando aspirador.")
             aspirador.reiniciar()
 
-        # Introduzindo um atraso de 1 segundo entre as ações
+        # Introduzindo um atraso de 10 segundos entre as ações
         time.sleep(10)
 
     print("Energia esgotada. Encerrando programa.")
